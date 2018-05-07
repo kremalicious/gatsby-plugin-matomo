@@ -15,7 +15,8 @@
     "babel-preset-react": "^6.24.1",
     "cross-env": "^5.0.5",
     "eslint": "^4.19.1",
-    "eslint-plugin-react": "^7.7.0"
+    "eslint-plugin-react": "^7.7.0",
+    "release-it": "^7.4.3"
   },
   "homepage": "https://github.com/kremalicious/gatsby-plugin-matomo",
   "keywords": [
@@ -32,8 +33,11 @@
   "repository": "https://github.com/kremalicious/gatsby-plugin-matomo.git",
   "scripts": {
     "build": "babel src --out-dir . --ignore __tests__",
-    "prepublishOnly": "cross-env NODE_ENV=production npm run build",
     "watch": "babel -w src --out-dir . --ignore __tests__",
-    "format": "prettier --write 'src/**/*.{js,jsx}'"
+    "test": "eslint ./src/**/*.js",
+    "release": "./node_modules/release-it/bin/release-it.js --src.tagName='v%s' --github.release --npm.publish --non-interactive",
+    "release-minor": "./node_modules/release-it/bin/release-it.js minor --src.tagName='v%s' --github.release --npm.publish --non-interactive",
+    "release-major": "./node_modules/release-it/bin/release-it.js major --src.tagName='v%s' --github.release --npm.publish --non-interactive",
+    "prepublishOnly": "cross-env NODE_ENV=production npm run build"
   }
 }
