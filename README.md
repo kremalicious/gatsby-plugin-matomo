@@ -1,7 +1,7 @@
 # gatsby-plugin-matomo
 
-![npm package](https://img.shields.io/npm/v/gatsby-plugin-matomo.svg)
-![Travis](https://img.shields.io/travis/kremalicious/gatsby-plugin-matomo.svg)
+[![npm package](https://img.shields.io/npm/v/gatsby-plugin-matomo.svg)](https://www.npmjs.com/package/gatsby-plugin-matomo)
+[![Build Status](https://travis-ci.com/kremalicious/gatsby-plugin-matomo.svg?branch=master)](https://travis-ci.com/kremalicious/gatsby-plugin-matomo)
 
 ⚛️📄🚀 Gatsby plugin to add [Matomo](https://matomo.org) (formerly Piwik) onto a site.
 
