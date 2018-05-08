@@ -13,20 +13,23 @@ function getDuration() {
 }
 
 exports.onRouteUpdate = ({ location }) => {
-  window._paq = window._paq || []
+  if (process.env.NODE_ENV !== 'production' && typeof _paq !== 'undefined') {
+    window._paq = window._paq || []
 
-  if (first) {
-    first = false
-    window._paq.push([
-      'trackEvent',
-      'javascript',
-      'load',
-      'duration',
-      getDuration(),
-    ])
-  } else {
-    window._paq.push(['setCustomUrl', location.pathname])
-    window._paq.push(['setDocumentTitle', location.pathname])
-    window._paq.push(['trackPageView'])
+    if (first) {
+      first = false
+      window._paq.push([
+        'trackEvent',
+        'javascript',
+        'load',
+        'duration',
+        getDuration()
+      ])
+    } else {
+      window._paq.push(['setCustomUrl', location.pathname])
+      window._paq.push(['setDocumentTitle', location.pathname])
+      window._paq.push(['trackPageView'])
+    }
   }
+  return null
 }

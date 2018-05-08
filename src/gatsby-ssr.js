@@ -40,14 +40,14 @@ function buildTrackingCodeNoJs(siteId, matomoUrl, siteUrl, pathname) {
 
 exports.onRenderBody = ({ setPostBodyComponents, pathname }, pluginOptions) => {
   if (process.env.NODE_ENV === 'production') {
-      const siteId = pluginOptions.siteId
-      const siteUrl = pluginOptions.siteUrl
-      const matomoUrl = pluginOptions.matomoUrl
+    const siteId = pluginOptions.siteId
+    const siteUrl = pluginOptions.siteUrl
+    const matomoUrl = pluginOptions.matomoUrl
 
-      return setPostBodyComponents([
-        buildTrackingCode(siteId, matomoUrl),
-        buildTrackingCodeNoJs(siteId, matomoUrl, siteUrl, pathname)
-      ])
-    }
+    return setPostBodyComponents([
+      buildTrackingCode(siteId, matomoUrl),
+      buildTrackingCodeNoJs(siteId, matomoUrl, siteUrl, pathname)
+    ])
+  }
   return null
 }
