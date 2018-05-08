@@ -1,10 +1,22 @@
 # gatsby-plugin-matomo
 
+![gatsby-plugin-matomo](gatsby-plugin-matomo.png)
 [![npm package](https://img.shields.io/npm/v/gatsby-plugin-matomo.svg)](https://www.npmjs.com/package/gatsby-plugin-matomo)
 [![Build Status](https://travis-ci.com/kremalicious/gatsby-plugin-matomo.svg?branch=master)](https://travis-ci.com/kremalicious/gatsby-plugin-matomo)
 [![Greenkeeper badge](https://badges.greenkeeper.io/kremalicious/gatsby-plugin-matomo.svg)](https://greenkeeper.io/)
 
 ⚛️📄🚀 Gatsby plugin to add [Matomo](https://matomo.org) (formerly Piwik) onto a site.
+
+## Features
+
+Plugin uses sensible defaults prioritizing user experience & privacy:
+
+- include tracking code in all server-side rendered routes
+- track all route views as custom events
+- load tracking scripts at end of `body` tag
+- use image tracking fallback for `noscript`
+- don't load anything when visitor has Do Not Track enabled
+- don't load anything in non-production environments
 
 ## Usage
 
@@ -32,16 +44,7 @@
 
 3. That's it!
 
-## Features
-
-Plugin uses sensible defaults prioritizing user experience & privacy:
-
-- include tracking code in all SSR routes
-- track all route views as custom events
-- load tracking scripts at end of `body` tag
-- use image tracking fallback for `noscript`
-- don't load anything when visitor has Do Not Track enabled
-- don't load anything in non-production environments
+_NOTE: This plugin only generates output when run in production mode. To test your tracking code, run: `gatsby build && gatsby serve`_.
 
 ## Development
 
