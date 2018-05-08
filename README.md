@@ -17,6 +17,7 @@ Plugin uses sensible defaults prioritizing user experience & privacy:
 - use image tracking fallback for `noscript`
 - don't load anything when visitor has Do Not Track enabled
 - don't load anything in non-production environments
+- dev mode for local development
 
 ## Usage
 
@@ -36,7 +37,7 @@ Plugin uses sensible defaults prioritizing user experience & privacy:
         options: {
           siteId: 'YOUR_SITE_ID',
           siteUrl: 'https://YOUR_LIVE_SITE_URL.COM',
-          matomoUrl: 'https://YOUR_MATOMO_URL.COM',
+          matomoUrl: 'https://YOUR_MATOMO_URL.COM'
         },
       },
     ]
@@ -44,7 +45,16 @@ Plugin uses sensible defaults prioritizing user experience & privacy:
 
 3. That's it!
 
-_NOTE: This plugin only generates output when run in production mode. To test your tracking code, run: `gatsby build && gatsby serve`_.
+_NOTE: By default, this plugin only generates output when run in production mode. To test your tracking code, run `gatsby build && gatsby serve` or set `dev` option to `true`_.
+
+## Options
+
+Option      | Explanation
+------------|---------
+`siteId`    | Your Matomo site ID configured in your Matomo installation.
+`siteUrl`   | The url of your site, usually the same as `siteMetadata.siteUrl`. Only used for generating the url for `noscript` image tracking fallback.
+`matomoUrl` | The url of your Matomo installation.
+`dev`       | Activate dev mode by setting it to `true`. Will load all scripts despite not running in `production` environment. Ignores your local browser's DNT header too. Outputs some information in console about what it is doing. Useful for local testing but careful: all hits will be send like in production.
 
 ## Development
 

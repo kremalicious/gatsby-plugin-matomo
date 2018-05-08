@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 let first = true
 
 function getDuration() {
@@ -15,6 +17,9 @@ function getDuration() {
 exports.onRouteUpdate = ({ location }) => {
   if (process.env.NODE_ENV !== 'production' && typeof _paq !== 'undefined') {
     window._paq = window._paq || []
+    window.dev = window.dev || null
+
+    const pathname = location.pathname
 
     if (first) {
       first = false
@@ -25,10 +30,18 @@ exports.onRouteUpdate = ({ location }) => {
         'duration',
         getDuration()
       ])
+
+      if (window.dev) {
+        console.log(`[Matomo] Page view for: ${pathname}`)
+      }
     } else {
-      window._paq.push(['setCustomUrl', location.pathname])
-      window._paq.push(['setDocumentTitle', location.pathname])
+      window._paq.push(['setCustomUrl', pathname])
+      window._paq.push(['setDocumentTitle', pathname])
       window._paq.push(['trackPageView'])
+
+      if (window.dev) {
+        console.log(`[Matomo] Page view for: ${pathname}`)
+      }
     }
   }
   return null
