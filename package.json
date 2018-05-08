@@ -1,7 +1,7 @@
 {
   "name": "gatsby-plugin-matomo",
   "description": "Gatsby plugin to add Matomo (formerly Piwik) onto a site.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Matthias Kretschmann <m@kretschmann.io>",
   "bugs": {
     "url": "https://github.com/kremalicious/gatsby-plugin-matomo/issues"
