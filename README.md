@@ -1,6 +1,6 @@
 # gatsby-plugin-matomo
 
-![gatsby-plugin-matomo](gatsby-plugin-matomo.png)
+![gatsby-plugin-matomo](https://user-images.githubusercontent.com/90316/39896678-6c0829ec-54af-11e8-84f6-ef94abb201ab.png)
 [![npm package](https://img.shields.io/npm/v/gatsby-plugin-matomo.svg)](https://www.npmjs.com/package/gatsby-plugin-matomo)
 [![Build Status](https://travis-ci.com/kremalicious/gatsby-plugin-matomo.svg?branch=master)](https://travis-ci.com/kremalicious/gatsby-plugin-matomo)
 [![Greenkeeper badge](https://badges.greenkeeper.io/kremalicious/gatsby-plugin-matomo.svg)](https://greenkeeper.io/)
@@ -17,6 +17,7 @@ Plugin uses sensible defaults prioritizing user experience & privacy:
 - use image tracking fallback for `noscript`
 - don't load anything when visitor has Do Not Track enabled
 - don't load anything in non-production environments
+- allow loading tracking script locally
 - dev mode for local development
 
 ## Usage
@@ -36,25 +37,26 @@ Plugin uses sensible defaults prioritizing user experience & privacy:
         resolve: 'gatsby-plugin-matomo',
         options: {
           siteId: 'YOUR_SITE_ID',
-          siteUrl: 'https://YOUR_LIVE_SITE_URL.COM',
-          matomoUrl: 'https://YOUR_MATOMO_URL.COM'
-        },
-      },
+          matomoUrl: 'https://YOUR_MATOMO_URL.COM',
+          siteUrl: 'https://YOUR_LIVE_SITE_URL.COM'
+        }
+      }
     ]
     ```
 
 3. That's it!
 
-_NOTE: By default, this plugin only generates output when run in production mode. To test your tracking code, run `gatsby build && gatsby serve` or set `dev` option to `true`_.
+_NOTE: By default, this plugin only generates output when run in production mode. To test your tracking code, run `gatsby build && gatsby serve`, or set `dev` option to `true`_.
 
 ## Options
 
-Option      | Explanation
-------------|---------
-`siteId`    | Your Matomo site ID configured in your Matomo installation.
-`siteUrl`   | The url of your site, usually the same as `siteMetadata.siteUrl`. Only used for generating the url for `noscript` image tracking fallback.
-`matomoUrl` | The url of your Matomo installation.
-`dev`       | Activate dev mode by setting it to `true`. Will load all scripts despite not running in `production` environment. Ignores your local browser's DNT header too. Outputs some information in console about what it is doing. Useful for local testing but careful: all hits will be send like in production.
+Option        | Explanation
+--------------|---------
+`siteId`      | Your Matomo site ID configured in your Matomo installation.
+`matomoUrl`   | The url of your Matomo installation.
+`siteUrl`     | The url of your site, usually the same as `siteMetadata.siteUrl`. Only used for generating the url for `noscript` image tracking fallback.
+`localScript` | (optional) Set path to load local `piwik.js` script, instead of loading it from your `matomoUrl`.
+`dev`         | (optional) Activate dev mode by setting to `true`. Will load all scripts despite not running in `production` environment. Ignores your local browser's DNT header too. Outputs some information in console about what it is doing. Useful for local testing but careful: all hits will be send like in production.
 
 ## Development
 

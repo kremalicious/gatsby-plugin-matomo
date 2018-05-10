@@ -1,6 +1,8 @@
 import React from 'react'
 
 function buildTrackingCode(pluginOptions) {
+  const script = pluginOptions.localScript ? pluginOptions.localScript : `${pluginOptions.matomoUrl}/piwik.js`
+
   const html = `
     window.dev = ${pluginOptions.dev}
 
@@ -20,7 +22,7 @@ function buildTrackingCode(pluginOptions) {
 
       var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
       g.defer=true; g.async=true;
-      g.src='${pluginOptions.matomoUrl}/piwik.js';
+      g.src='${script}'
       s.parentNode.insertBefore(g,s);
     }
   `
