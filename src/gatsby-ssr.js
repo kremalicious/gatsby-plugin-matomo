@@ -5,7 +5,6 @@ function buildTrackingCode(pluginOptions) {
 
   const html = `
     window.dev = ${pluginOptions.dev}
-
     if (window.dev === true || !(navigator.doNotTrack == '1' || window.doNotTrack == '1')) {
       window._paq = window._paq || [];
       window._paq.push(['setTrackerUrl', '${pluginOptions.matomoUrl}/piwik.php']);
@@ -14,23 +13,18 @@ function buildTrackingCode(pluginOptions) {
       window._paq.push(['trackPageView']);
       window._paq.push(['enableHeartBeatTimer']);
       window.start = new Date();
-
       if (window.dev === true) {
         console.log('[Matomo] Tracking initialized')
         console.log('[Matomo] matomoUrl: ${pluginOptions.matomoUrl}, siteId: ${pluginOptions.siteId}')
       }
-
       var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-      g.defer=true; g.async=true;
-      g.src='${script}'
-      s.parentNode.insertBefore(g,s);
+      g.defer=true; g.async=true; g.src='${script}'; s.parentNode.insertBefore(g,s);
     }
   `
 
   return (
     <script
       key={'gatsby-plugin-matomo'}
-      type="text/javascript"
       dangerouslySetInnerHTML={{ __html: html }}
     />
   )
