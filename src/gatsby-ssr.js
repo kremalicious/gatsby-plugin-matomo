@@ -1,13 +1,17 @@
 import React from 'react'
 
 function buildTrackingCode(pluginOptions) {
-  const script = pluginOptions.localScript ? pluginOptions.localScript : `${pluginOptions.matomoUrl}/piwik.js`
+  const script = pluginOptions.localScript
+    ? pluginOptions.localScript
+    : `${pluginOptions.matomoUrl}/piwik.js`
 
   const html = `
     window.dev = ${pluginOptions.dev}
     if (window.dev === true || !(navigator.doNotTrack == '1' || window.doNotTrack == '1')) {
       window._paq = window._paq || [];
-      window._paq.push(['setTrackerUrl', '${pluginOptions.matomoUrl}/piwik.php']);
+      window._paq.push(['setTrackerUrl', '${
+        pluginOptions.matomoUrl
+      }/piwik.php']);
       window._paq.push(['setSiteId', '${pluginOptions.siteId}']);
       window._paq.push(['enableLinkTracking']);
       window._paq.push(['trackPageView']);
@@ -15,7 +19,9 @@ function buildTrackingCode(pluginOptions) {
       window.start = new Date();
       if (window.dev === true) {
         console.log('[Matomo] Tracking initialized')
-        console.log('[Matomo] matomoUrl: ${pluginOptions.matomoUrl}, siteId: ${pluginOptions.siteId}')
+        console.log('[Matomo] matomoUrl: ${pluginOptions.matomoUrl}, siteId: ${
+    pluginOptions.siteId
+  }')
       }
       var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
       g.defer=true; g.async=true; g.src='${script}'; s.parentNode.insertBefore(g,s);
@@ -31,7 +37,10 @@ function buildTrackingCode(pluginOptions) {
 }
 
 function buildTrackingCodeNoJs(pluginOptions, pathname) {
-  const html = `<img src="${pluginOptions.matomoUrl}/piwik.php?idsite=${pluginOptions.siteId}&rec=1&url=${pluginOptions.siteUrl + pathname}" style="border:0" alt="tracker" />`
+  const html = `<img src="${pluginOptions.matomoUrl}/piwik.php?idsite=${
+    pluginOptions.siteId
+  }&rec=1&url=${pluginOptions.siteUrl +
+    pathname}" style="border:0" alt="tracker" />`
 
   return (
     <noscript
