@@ -35,9 +35,11 @@ exports.onRouteUpdate = ({ location }) => {
         console.log(`[Matomo] Page view for: ${pathname}`)
       }
     } else {
+      window._paq.push(['setReferrerUrl', pathname])
       window._paq.push(['setCustomUrl', pathname])
       window._paq.push(['setDocumentTitle', pathname])
       window._paq.push(['trackPageView'])
+      window._paq.push(['enableLinkTracking'])
 
       if (window.dev) {
         console.log(`[Matomo] Page view for: ${pathname}`)
