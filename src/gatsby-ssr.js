@@ -16,8 +16,10 @@ function buildTrackingCode(pluginOptions) {
       window._paq.push(['enableHeartBeatTimer']);
       window.start = new Date();
 
-      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-      g.defer=true; g.async=true; g.src='${script}'; s.parentNode.insertBefore(g,s);
+      (function() {
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src='${script}'; s.parentNode.insertBefore(g,s);
+      })();
 
       if (window.dev === true) {
         console.log('[Matomo] Tracking initialized')
