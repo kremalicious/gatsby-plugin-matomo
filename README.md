@@ -57,7 +57,8 @@ Option           | Explanation
 `siteId`         | Your Matomo site ID configured in your Matomo installation.
 `matomoUrl`      | The url of your Matomo installation.
 `siteUrl`        | The url of your site, usually the same as `siteMetadata.siteUrl`. Only used for generating the url for `noscript` image tracking fallback.
-`requireConsent` | (optional) If true, tracking will be disabled until you call `window._paq.push(['setConsentGiven']);`
+`requireConsent` | (optional) If true, tracking will be disabled until you call `window._paq.push(['setConsentGiven']);`.
+`disableCookies` | (optional) If true, no cookie will be used by Matomo.
 `localScript`    | (optional) Set path to load local `piwik.js` script, instead of loading it from your `matomoUrl`.
 `dev`            | (optional) Activate dev mode by setting to `true`. Will load all scripts despite not running in `production` environment. Ignores your local browser's DNT header too. Outputs some information in console about what it is doing. Useful for local testing but careful: all hits will be send like in production.
 
