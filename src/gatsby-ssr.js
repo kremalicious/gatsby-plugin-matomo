@@ -9,6 +9,8 @@ function buildTrackingCode(pluginOptions) {
     window.dev = ${pluginOptions.dev}
     if (window.dev === true || !(navigator.doNotTrack == '1' || window.doNotTrack == '1')) {
       window._paq = window._paq || [];
+      ${pluginOptions.requireConsent ? 'window._paq.push([\'requireConsent\']);' : ''}
+      ${pluginOptions.disableCookies ? 'window._paq.push([\'disableCookies\']);' : ''}
       window._paq.push(['setTrackerUrl', '${pluginOptions.matomoUrl}/piwik.php']);
       window._paq.push(['setSiteId', '${pluginOptions.siteId}']);
       window._paq.push(['trackPageView']);
