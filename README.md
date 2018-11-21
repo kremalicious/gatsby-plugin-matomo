@@ -1,12 +1,12 @@
 # gatsby-plugin-matomo
 
-![gatsby-plugin-matomo](https://user-images.githubusercontent.com/90316/39896678-6c0829ec-54af-11e8-84f6-ef94abb201ab.png)
+![gatsby-plugin-matomo](https://raw.githubusercontent.com/kremalicious/gatsby-plugin-matomo/master/gatsby-plugin-matomo.png)
 [![npm package](https://img.shields.io/npm/v/gatsby-plugin-matomo.svg)](https://www.npmjs.com/package/gatsby-plugin-matomo)
 [![Build Status](https://travis-ci.com/kremalicious/gatsby-plugin-matomo.svg?branch=master)](https://travis-ci.com/kremalicious/gatsby-plugin-matomo)
 [![Maintainability](https://api.codeclimate.com/v1/badges/067339a02f2058f5ba01/maintainability)](https://codeclimate.com/github/kremalicious/gatsby-plugin-matomo/maintainability)
 [![Greenkeeper badge](https://badges.greenkeeper.io/kremalicious/gatsby-plugin-matomo.svg)](https://greenkeeper.io/)
 
-⚛️📄🚀 Gatsby plugin to add [Matomo](https://matomo.org) (formerly Piwik) onto a site.
+⚛️📄🚀 Gatsby plugin to add [Matomo](https://matomo.org) (formerly Piwik) onto a site. Release post: https://kremalicious.com/gatsby-plugin-matomo/
 
 ## Features
 
