@@ -75,6 +75,10 @@ npm run release-minor
 npm run release-major
 ```
 
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md).
+
 ## License
 
 The MIT License
