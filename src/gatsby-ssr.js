@@ -7,7 +7,7 @@ function buildTrackingCode(pluginOptions) {
 
   const html = `
     window.dev = ${pluginOptions.dev}
-    if (window.dev === true || !(navigator.doNotTrack == '1' || window.doNotTrack == '1')) {
+    if (window.dev === true || !(navigator.doNotTrack === '1' || window.doNotTrack === '1')) {
       window._paq = window._paq || [];
       ${pluginOptions.requireConsent ? 'window._paq.push([\'requireConsent\']);' : ''}
       ${pluginOptions.disableCookies ? 'window._paq.push([\'disableCookies\']);' : ''}
@@ -50,11 +50,24 @@ function buildTrackingCodeNoJs(pluginOptions, pathname) {
 }
 
 exports.onRenderBody = ({ setPostBodyComponents, pathname }, pluginOptions) => {
-  if (process.env.NODE_ENV === 'production' || pluginOptions.dev === true) {
-    return setPostBodyComponents([
-      buildTrackingCode(pluginOptions),
-      buildTrackingCodeNoJs(pluginOptions, pathname)
-    ])
+  let excludePaths = ['/offline-plugin-app-shell-fallback/']
+
+  if (typeof pluginOptions.exclude !== 'undefined') {
+    pluginOptions.exclude.map(exclude => {
+      excludePaths.push(exclude)
+    })
+  }
+
+  const isPathExcluded = excludePaths.some(path => pathname === path)
+
+  if (
+    (process.env.NODE_ENV === 'production' || pluginOptions.dev === true) &&
+    !isPathExcluded
+  ) {
+      return setPostBodyComponents([
+        buildTrackingCode(pluginOptions),
+        buildTrackingCodeNoJs(pluginOptions, pathname)
+      ])
   }
   return null
 }
