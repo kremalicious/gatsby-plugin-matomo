@@ -1,3 +1,13 @@
+## 0.6.0 (2018-12-05)
+
+* add changelog ([2b268a1](https://github.com/kremalicious/gatsby-plugin-matomo/commit/2b268a1))
+* allow exclusion of paths ([9464d47](https://github.com/kremalicious/gatsby-plugin-matomo/commit/9464d47))
+* docs update ([12cdf0e](https://github.com/kremalicious/gatsby-plugin-matomo/commit/12cdf0e))
+* make release-it work with conventional-changelog ([2dcd5a7](https://github.com/kremalicious/gatsby-plugin-matomo/commit/2dcd5a7))
+* package updates ([0a5cc27](https://github.com/kremalicious/gatsby-plugin-matomo/commit/0a5cc27))
+
+
+
 ## <small>0.5.1 (2018-11-21)</small>
 
 * bump packages ([cb26a40](https://github.com/kremalicious/gatsby-plugin-matomo/commit/cb26a40))
