@@ -1,0 +1,5 @@
+{
+  "beforeChangelogCommand": "./node_modules/.bin/conventional-changelog -i CHANGELOG.md -s",
+  "changelogCommand": "./node_modules/.bin/conventional-changelog | tail -n +3",
+  "safeBump": false
+}

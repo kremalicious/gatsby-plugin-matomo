@@ -7,11 +7,11 @@
     "build": "babel src --out-dir . --ignore __tests__",
     "start": "babel -w src --out-dir . --ignore __tests__",
     "test": "eslint ./src/**/*.js",
-    "release": "npm run changelog && ./node_modules/release-it/bin/release-it.js --src.tagName='v%s' --github.release --npm.publish --non-interactive",
-    "release-minor": "npm run changelog && ./node_modules/release-it/bin/release-it.js minor --src.tagName='v%s' --github.release --npm.publish --non-interactive",
-    "release-major": "npm run changelog && ./node_modules/release-it/bin/release-it.js major --src.tagName='v%s' --github.release --npm.publish --non-interactive",
+    "release": "./node_modules/release-it/bin/release-it.js --src.tagName='v%s' --github.release --npm.publish --non-interactive",
+    "release-minor": "./node_modules/release-it/bin/release-it.js minor --src.tagName='v%s' --github.release --npm.publish --non-interactive",
+    "release-major": "./node_modules/release-it/bin/release-it.js major --src.tagName='v%s' --github.release --npm.publish --non-interactive",
     "prepublishOnly": "cross-env NODE_ENV=production npm run build",
-    "changelog": "./node_modules/.bin/conventional-changelog -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md && git commit -m 'update changelog'"
+    "changelog": "./node_modules/.bin/conventional-changelog -i CHANGELOG.md -s -r 0"
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
