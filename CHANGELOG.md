@@ -1,3 +1,13 @@
+## <small>0.6.1 (2019-03-30)</small>
+
+* package updates ([fe6f67e](https://github.com/kremalicious/gatsby-plugin-matomo/commit/fe6f67e))
+* Release 0.6.1 ([f62c5bf](https://github.com/kremalicious/gatsby-plugin-matomo/commit/f62c5bf))
+* run changelog before release ([5da11a4](https://github.com/kremalicious/gatsby-plugin-matomo/commit/5da11a4))
+* chore(package): update release-it to version 10.0.0 ([d56c6c3](https://github.com/kremalicious/gatsby-plugin-matomo/commit/d56c6c3))
+* chore(package): update release-it to version 9.0.0 ([bc75531](https://github.com/kremalicious/gatsby-plugin-matomo/commit/bc75531))
+
+
+
 ## 0.6.0 (2018-12-05)
 
 * add changelog ([2b268a1](https://github.com/kremalicious/gatsby-plugin-matomo/commit/2b268a1))
@@ -5,6 +15,7 @@
 * docs update ([12cdf0e](https://github.com/kremalicious/gatsby-plugin-matomo/commit/12cdf0e))
 * make release-it work with conventional-changelog ([2dcd5a7](https://github.com/kremalicious/gatsby-plugin-matomo/commit/2dcd5a7))
 * package updates ([0a5cc27](https://github.com/kremalicious/gatsby-plugin-matomo/commit/0a5cc27))
+* Release 0.6.0 ([6c994ec](https://github.com/kremalicious/gatsby-plugin-matomo/commit/6c994ec))
 
 
 
