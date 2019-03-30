@@ -1,6 +1,6 @@
 {
     "presets": [
-        ["env", { "browser": true }],
-        ["react"]
+        ["@babel/env"],
+        ["@babel/react"]
     ]
 }

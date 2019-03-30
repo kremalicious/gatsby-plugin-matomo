@@ -13,19 +13,19 @@
     "prepublishOnly": "cross-env NODE_ENV=production npm run build",
     "changelog": "./node_modules/.bin/conventional-changelog -i CHANGELOG.md -s -r 0"
   },
-  "dependencies": {
-    "babel-runtime": "^6.26.0",
-    "react": "^16.6.3",
-    "react-hot-loader": "^4.3.12"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "conventional-changelog-cli": "^2.0.11",
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
+    "conventional-changelog-cli": "^2.0.12",
     "cross-env": "^5.2.0",
-    "eslint": "^5.9.0",
-    "eslint-plugin-react": "^7.11.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.12.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-hot-loader": "^4.8.1",
     "release-it": "^10.0.0"
   },
   "homepage": "https://github.com/kremalicious/gatsby-plugin-matomo",

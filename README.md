@@ -1,4 +1,4 @@
-[![gatsby-plugin-matomo](https://raw.githubusercontent.com/kremalicious/gatsby-plugin-matomo/master/gatsby-plugin-matomo.png)](https://kremalicious.com/gatsby-plugin-matomo/)
+[![gatsby-plugin-matomo](https://raw.githubusercontent.com/kremalicious/gatsby-plugin-matomo/master/src/gatsby-plugin-matomo.png)](https://kremalicious.com/gatsby-plugin-matomo/)
 
 # gatsby-plugin-matomo
 
@@ -7,7 +7,16 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/067339a02f2058f5ba01/maintainability)](https://codeclimate.com/github/kremalicious/gatsby-plugin-matomo/maintainability)
 [![Greenkeeper badge](https://badges.greenkeeper.io/kremalicious/gatsby-plugin-matomo.svg)](https://greenkeeper.io/)
 
-🥂 Gatsby plugin to add Matomo (formerly Piwik) onto a site. https://kremalicious.com/gatsby-plugin-matomo/
+> 🥂 Gatsby plugin to add Matomo (formerly Piwik) onto a site. https://kremalicious.com/gatsby-plugin-matomo/
+
+---
+
+- [Features](#features)
+- [Usage](#usage)
+  - [Options](#options)
+- [Development](#development)
+- [Changelog](#changelog)
+- [License](#license)
 
 ## Features
 
@@ -52,7 +61,7 @@ Plugin uses sensible defaults prioritizing user experience & privacy:
 
 _NOTE: By default, this plugin only generates output when run in production mode. To test your tracking code, run `gatsby build && gatsby serve`, or set `dev` option to `true`_.
 
-## Options
+### Options
 
 Option           | Explanation
 -----------------|---------
@@ -88,6 +97,9 @@ plugins: [
 
 ```bash
 npm i
+npm start
+
+# create production build
 npm run build
 
 # publishing to npm & GitHub releases
