@@ -14,12 +14,13 @@ function getDuration() {
   return difference
 }
 
-exports.onRouteUpdate = ({ location }) => {
+exports.onRouteUpdate = ({ location, prevLocation }) => {
   if (process.env.NODE_ENV === 'production' && typeof _paq !== 'undefined') {
     window._paq = window._paq || []
     window.dev = window.dev || null
 
-    const pathname = location.pathname
+    const url = location.pathname + location.search + location.hash
+    const prevUrl = prevLocation && prevLocation.pathname + prevLocation.search + prevLocation.hash
 
     if (first) {
       first = false
@@ -32,17 +33,17 @@ exports.onRouteUpdate = ({ location }) => {
       ])
 
       if (window.dev) {
-        console.log(`[Matomo] Page view for: ${pathname}`)
+        console.log(`[Matomo] Page view for: ${url}`)
       }
     } else {
-      window._paq.push(['setReferrerUrl', pathname])
-      window._paq.push(['setCustomUrl', pathname])
-      window._paq.push(['setDocumentTitle', pathname])
+      window._paq.push(['setReferrerUrl', prevUrl])
+      window._paq.push(['setCustomUrl', url])
+      window._paq.push(['setDocumentTitle', url])
       window._paq.push(['trackPageView'])
       window._paq.push(['enableLinkTracking'])
 
       if (window.dev) {
-        console.log(`[Matomo] Page view for: ${pathname}`)
+        console.log(`[Matomo] Page view for: ${url}`)
       }
     }
   }
