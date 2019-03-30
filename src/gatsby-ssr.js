@@ -13,8 +13,6 @@ function buildTrackingCode(pluginOptions) {
       ${pluginOptions.disableCookies ? 'window._paq.push([\'disableCookies\']);' : ''}
       window._paq.push(['setTrackerUrl', '${pluginOptions.matomoUrl}/piwik.php']);
       window._paq.push(['setSiteId', '${pluginOptions.siteId}']);
-      window._paq.push(['trackPageView']);
-      window._paq.push(['enableLinkTracking']);
       window._paq.push(['enableHeartBeatTimer']);
       window.start = new Date();
 

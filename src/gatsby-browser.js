@@ -14,16 +14,42 @@ function getDuration() {
   return difference
 }
 
-exports.onRouteUpdate = ({ location }) => {
-  if (process.env.NODE_ENV === 'production' && typeof _paq !== 'undefined') {
-    window._paq = window._paq || []
-    window.dev = window.dev || null
+exports.onRouteUpdate = ({ location, prevLocation }) => {
+  if (process.env.NODE_ENV === 'production' && typeof _paq !== 'undefined' || window.dev === true) {
+    const _paq = window._paq || []
+    const dev = window.dev || null
 
-    const pathname = location.pathname
+    const url = location.pathname + location.search + location.hash
+    const prevUrl = prevLocation && prevLocation.pathname + prevLocation.search + prevLocation.hash
+
+    // document.title workaround stolen from:
+    // https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-google-analytics/src/gatsby-browser.js
+    const sendPageView = () => {
+      const { title } = document
+
+      prevUrl && _paq.push(['setReferrerUrl', prevUrl])
+      _paq.push(['setCustomUrl', url])
+      _paq.push(['setDocumentTitle', title])
+      _paq.push(['trackPageView'])
+      _paq.push(['enableLinkTracking'])
+
+      if (dev) {
+        console.log(`[Matomo] Page view for: ${url} - ${title}`)
+      }
+    }
+
+    if ('requestAnimationFrame' in window) {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(sendPageView)
+      })
+    } else {
+      // simulate 2 rAF calls
+      setTimeout(sendPageView, 32)
+    }
 
     if (first) {
       first = false
-      window._paq.push([
+      _paq.push([
         'trackEvent',
         'javascript',
         'load',
@@ -31,18 +57,8 @@ exports.onRouteUpdate = ({ location }) => {
         getDuration()
       ])
 
-      if (window.dev) {
-        console.log(`[Matomo] Page view for: ${pathname}`)
-      }
-    } else {
-      window._paq.push(['setReferrerUrl', pathname])
-      window._paq.push(['setCustomUrl', pathname])
-      window._paq.push(['setDocumentTitle', pathname])
-      window._paq.push(['trackPageView'])
-      window._paq.push(['enableLinkTracking'])
-
-      if (window.dev) {
-        console.log(`[Matomo] Page view for: ${pathname}`)
+      if (dev) {
+        console.log(`[Matomo] Tracking duration for: ${url}`)
       }
     }
   }
