@@ -15,7 +15,7 @@ function getDuration() {
 }
 
 exports.onRouteUpdate = ({ location, prevLocation }) => {
-  if (process.env.NODE_ENV === 'production' && typeof _paq !== 'undefined') {
+  if (process.env.NODE_ENV === 'production' && typeof _paq !== 'undefined' || window.dev === true) {
     window._paq = window._paq || []
     window.dev = window.dev || null
 
