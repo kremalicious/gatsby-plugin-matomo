@@ -1,3 +1,13 @@
+## 0.7.0 (2019-03-30)
+
+* always fire route updates in dev mode ([7b7f478](https://github.com/kremalicious/gatsby-plugin-matomo/commit/7b7f478))
+* better page url & referrer url tracking ([04b8ba1](https://github.com/kremalicious/gatsby-plugin-matomo/commit/04b8ba1))
+* capture and send custom page title ([aedb806](https://github.com/kremalicious/gatsby-plugin-matomo/commit/aedb806)), closes [#11](https://github.com/kremalicious/gatsby-plugin-matomo/issues/11)
+* Release 0.7.0 ([4c36d9c](https://github.com/kremalicious/gatsby-plugin-matomo/commit/4c36d9c))
+* update changelog ([24f57da](https://github.com/kremalicious/gatsby-plugin-matomo/commit/24f57da))
+
+
+
 ## <small>0.6.1 (2019-03-30)</small>
 
 * package updates ([fe6f67e](https://github.com/kremalicious/gatsby-plugin-matomo/commit/fe6f67e))
