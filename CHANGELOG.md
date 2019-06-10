@@ -1,3 +1,13 @@
+## <small>0.7.1 (2019-06-10)</small>
+
+* add prettier ([858fc2e](https://github.com/kremalicious/gatsby-plugin-matomo/commit/858fc2e))
+* bump packages ([e3479f6](https://github.com/kremalicious/gatsby-plugin-matomo/commit/e3479f6))
+* new release-it setup ([bbb5f19](https://github.com/kremalicious/gatsby-plugin-matomo/commit/bbb5f19))
+* preconnect to configured Matomo host url ([9b18330](https://github.com/kremalicious/gatsby-plugin-matomo/commit/9b18330))
+* update changelog ([a535e35](https://github.com/kremalicious/gatsby-plugin-matomo/commit/a535e35))
+
+
+
 ## 0.7.0 (2019-03-30)
 
 * always fire route updates in dev mode ([7b7f478](https://github.com/kremalicious/gatsby-plugin-matomo/commit/7b7f478))
