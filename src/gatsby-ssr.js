@@ -57,7 +57,20 @@ function buildTrackingCodeNoJs(pluginOptions, pathname) {
   )
 }
 
-exports.onRenderBody = ({ setPostBodyComponents, pathname }, pluginOptions) => {
+function buildHead(pluginOptions) {
+  return (
+    <link
+      rel="preconnect"
+      href={pluginOptions.matomoUrl}
+      key={'gatsby-plugin-matomo'}
+    />
+  )
+}
+
+exports.onRenderBody = (
+  { setHeadComponents, setPostBodyComponents, pathname },
+  pluginOptions
+) => {
   let excludePaths = ['/offline-plugin-app-shell-fallback/']
 
   if (typeof pluginOptions.exclude !== 'undefined') {
@@ -72,10 +85,13 @@ exports.onRenderBody = ({ setPostBodyComponents, pathname }, pluginOptions) => {
     (process.env.NODE_ENV === 'production' || pluginOptions.dev === true) &&
     !isPathExcluded
   ) {
-    return setPostBodyComponents([
-      buildTrackingCode(pluginOptions),
-      buildTrackingCodeNoJs(pluginOptions, pathname)
-    ])
+    return (
+      setHeadComponents([buildHead(pluginOptions)]) &&
+      setPostBodyComponents([
+        buildTrackingCode(pluginOptions),
+        buildTrackingCodeNoJs(pluginOptions, pathname)
+      ])
+    )
   }
   return null
 }

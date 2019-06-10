@@ -20,7 +20,7 @@
 
 ## Features
 
-Plugin uses sensible defaults prioritizing user experience & privacy:
+Plugin uses sensible defaults prioritizing user experience, performance & privacy:
 
 - include tracking code in all server-side rendered routes
 - track all route views as custom events
@@ -31,6 +31,7 @@ Plugin uses sensible defaults prioritizing user experience & privacy:
 - consent mode for privacy
 - allow loading tracking script locally
 - define paths to be excluded from tracking
+- `preconnect` to configured Matomo host url
 - dev mode for local development
 
 ## Usage
