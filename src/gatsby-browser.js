@@ -15,12 +15,17 @@ function getDuration() {
 }
 
 exports.onRouteUpdate = ({ location, prevLocation }) => {
-  if (process.env.NODE_ENV === 'production' && typeof _paq !== 'undefined' || window.dev === true) {
+  if (
+    (process.env.NODE_ENV === 'production' && typeof _paq !== 'undefined') ||
+    window.dev === true
+  ) {
     const _paq = window._paq || []
     const dev = window.dev || null
 
     const url = location.pathname + location.search + location.hash
-    const prevUrl = prevLocation && prevLocation.pathname + prevLocation.search + prevLocation.hash
+    const prevUrl =
+      prevLocation &&
+      prevLocation.pathname + prevLocation.search + prevLocation.hash
 
     // document.title workaround stolen from:
     // https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-google-analytics/src/gatsby-browser.js
@@ -49,13 +54,7 @@ exports.onRouteUpdate = ({ location, prevLocation }) => {
 
     if (first) {
       first = false
-      _paq.push([
-        'trackEvent',
-        'javascript',
-        'load',
-        'duration',
-        getDuration()
-      ])
+      _paq.push(['trackEvent', 'javascript', 'load', 'duration', getDuration()])
 
       if (dev) {
         console.log(`[Matomo] Tracking duration for: ${url}`)
