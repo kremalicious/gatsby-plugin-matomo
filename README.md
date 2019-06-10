@@ -37,25 +37,25 @@ Plugin uses sensible defaults prioritizing user experience & privacy:
 
 1. First, install the plugin from your project's root:
 
-    ```bash
-    cd yourproject/
-    npm i gatsby-plugin-matomo
-    ```
+   ```bash
+   cd yourproject/
+   npm i gatsby-plugin-matomo
+   ```
 
 2. Then load the plugin from your `gatsby-config.js` and set the required variables:
 
-    ```js
-    plugins: [
-      {
-        resolve: 'gatsby-plugin-matomo',
-        options: {
-          siteId: 'YOUR_SITE_ID',
-          matomoUrl: 'https://YOUR_MATOMO_URL.COM',
-          siteUrl: 'https://YOUR_LIVE_SITE_URL.COM'
-        }
-      }
-    ]
-    ```
+   ```js
+   plugins: [
+     {
+       resolve: 'gatsby-plugin-matomo',
+       options: {
+         siteId: 'YOUR_SITE_ID',
+         matomoUrl: 'https://YOUR_MATOMO_URL.COM',
+         siteUrl: 'https://YOUR_LIVE_SITE_URL.COM'
+       }
+     }
+   ]
+   ```
 
 3. That's it!
 
@@ -63,16 +63,16 @@ _NOTE: By default, this plugin only generates output when run in production mode
 
 ### Options
 
-Option           | Explanation
------------------|---------
-`siteId`         | Your Matomo site ID configured in your Matomo installation.
-`matomoUrl`      | The url of your Matomo installation.
-`siteUrl`        | The url of your site, usually the same as `siteMetadata.siteUrl`. Only used for generating the url for `noscript` image tracking fallback.
-`exclude`        | (optional) Specify an array of pathnames where tracking code will be excluded. The pathname `/offline-plugin-app-shell-fallback/` is excluded by default.
-`requireConsent` | (optional) If true, tracking will be disabled until you call `window._paq.push(['setConsentGiven']);`.
-`disableCookies` | (optional) If true, no cookie will be used by Matomo.
-`localScript`    | (optional) If set, load local `piwik.js` script from the given path, instead of loading it from your `matomoUrl`.
-`dev`            | (optional) Activate dev mode by setting to `true`. Will load all scripts despite not running in `production` environment. Ignores your local browser's DNT header too. Outputs some information in console about what it is doing. Useful for local testing but careful: all hits will be send like in production.
+| Option           | Explanation                                                                                                                                                                                                                                                                                                        |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `siteId`         | Your Matomo site ID configured in your Matomo installation.                                                                                                                                                                                                                                                        |
+| `matomoUrl`      | The url of your Matomo installation.                                                                                                                                                                                                                                                                               |
+| `siteUrl`        | The url of your site, usually the same as `siteMetadata.siteUrl`. Only used for generating the url for `noscript` image tracking fallback.                                                                                                                                                                         |
+| `exclude`        | (optional) Specify an array of pathnames where tracking code will be excluded. The pathname `/offline-plugin-app-shell-fallback/` is excluded by default.                                                                                                                                                          |
+| `requireConsent` | (optional) If true, tracking will be disabled until you call `window._paq.push(['setConsentGiven']);`.                                                                                                                                                                                                             |
+| `disableCookies` | (optional) If true, no cookie will be used by Matomo.                                                                                                                                                                                                                                                              |
+| `localScript`    | (optional) If set, load local `piwik.js` script from the given path, instead of loading it from your `matomoUrl`.                                                                                                                                                                                                  |
+| `dev`            | (optional) Activate dev mode by setting to `true`. Will load all scripts despite not running in `production` environment. Ignores your local browser's DNT header too. Outputs some information in console about what it is doing. Useful for local testing but careful: all hits will be send like in production. |
 
 ```js
 plugins: [

@@ -1,18 +1,25 @@
 import React from 'react'
 
 function buildTrackingCode(pluginOptions) {
-  const script = pluginOptions.localScript
-    ? pluginOptions.localScript
-    : `${pluginOptions.matomoUrl}/piwik.js`
+  const {
+    matomoUrl,
+    siteId,
+    dev,
+    localScript,
+    requireConsent,
+    disableCookies
+  } = pluginOptions
+
+  const script = localScript ? localScript : `${matomoUrl}/piwik.js`
 
   const html = `
-    window.dev = ${pluginOptions.dev}
+    window.dev = ${dev}
     if (window.dev === true || !(navigator.doNotTrack === '1' || window.doNotTrack === '1')) {
       window._paq = window._paq || [];
-      ${pluginOptions.requireConsent ? 'window._paq.push([\'requireConsent\']);' : ''}
-      ${pluginOptions.disableCookies ? 'window._paq.push([\'disableCookies\']);' : ''}
-      window._paq.push(['setTrackerUrl', '${pluginOptions.matomoUrl}/piwik.php']);
-      window._paq.push(['setSiteId', '${pluginOptions.siteId}']);
+      ${requireConsent ? "window._paq.push(['requireConsent']);" : ''}
+      ${disableCookies ? "window._paq.push(['disableCookies']);" : ''}
+      window._paq.push(['setTrackerUrl', '${matomoUrl}/piwik.php']);
+      window._paq.push(['setSiteId', '${siteId}']);
       window._paq.push(['enableHeartBeatTimer']);
       window.start = new Date();
 
@@ -23,7 +30,7 @@ function buildTrackingCode(pluginOptions) {
 
       if (window.dev === true) {
         console.log('[Matomo] Tracking initialized')
-        console.log('[Matomo] matomoUrl: ${pluginOptions.matomoUrl}, siteId: ${pluginOptions.siteId}')
+        console.log('[Matomo] matomoUrl: ${matomoUrl}, siteId: ${siteId}')
       }
     }
   `
@@ -37,7 +44,10 @@ function buildTrackingCode(pluginOptions) {
 }
 
 function buildTrackingCodeNoJs(pluginOptions, pathname) {
-  const html = `<img src="${pluginOptions.matomoUrl}/piwik.php?idsite=${pluginOptions.siteId}&rec=1&url=${pluginOptions.siteUrl + pathname}" style="border:0" alt="tracker" />`
+  const html = `<img src="${pluginOptions.matomoUrl}/piwik.php?idsite=${
+    pluginOptions.siteId
+  }&rec=1&url=${pluginOptions.siteUrl +
+    pathname}" style="border:0" alt="tracker" />`
 
   return (
     <noscript
@@ -62,10 +72,10 @@ exports.onRenderBody = ({ setPostBodyComponents, pathname }, pluginOptions) => {
     (process.env.NODE_ENV === 'production' || pluginOptions.dev === true) &&
     !isPathExcluded
   ) {
-      return setPostBodyComponents([
-        buildTrackingCode(pluginOptions),
-        buildTrackingCodeNoJs(pluginOptions, pathname)
-      ])
+    return setPostBodyComponents([
+      buildTrackingCode(pluginOptions),
+      buildTrackingCodeNoJs(pluginOptions, pathname)
+    ])
   }
   return null
 }

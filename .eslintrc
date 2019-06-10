@@ -1,16 +1,10 @@
 {
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
-  "plugins": ["react"],
-  "rules": {
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "semi": [
-      "error",
-      "never"
-    ]
-  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["react", "prettier"],
   "parserOptions": {
     "sourceType": "module",
     "ecmaFeatures": {

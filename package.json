@@ -7,12 +7,10 @@
     "build": "babel src --out-dir . --ignore __tests__",
     "start": "babel -w src --out-dir . --ignore __tests__",
     "test": "eslint ./src/**/*.js",
-    "release": "./node_modules/release-it/bin/release-it.js --src.tagName='v%s' --github.release --npm.publish --non-interactive",
-    "release-minor": "./node_modules/release-it/bin/release-it.js minor --src.tagName='v%s' --github.release --npm.publish --non-interactive",
-    "release-major": "./node_modules/release-it/bin/release-it.js major --src.tagName='v%s' --github.release --npm.publish --non-interactive",
+    "format": "prettier --write 'src/**/*.{js,jsx}'",
+    "release": "release-it --non-interactive",
     "prepublishOnly": "cross-env NODE_ENV=production npm run build",
-    "changelog": "./node_modules/.bin/conventional-changelog -i CHANGELOG.md -s -r 0",
-    "beforeStage": "npm run changelog"
+    "changelog": "./node_modules/.bin/conventional-changelog -i CHANGELOG.md -s -r 0"
   },
   "dependencies": {},
   "devDependencies": {
@@ -23,7 +21,10 @@
     "conventional-changelog-cli": "^2.0.12",
     "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.12.4",
+    "prettier": "^1.18.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-hot-loader": "^4.8.1",
