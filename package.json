@@ -27,7 +27,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-hot-loader": "^4.8.1",
-    "release-it": "^10.0.0"
+    "release-it": "^12.3.0"
   },
   "homepage": "https://github.com/kremalicious/gatsby-plugin-matomo",
   "keywords": [
