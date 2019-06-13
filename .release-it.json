@@ -1,11 +1,7 @@
 {
-  "beforeChangelogCommand": "./node_modules/.bin/conventional-changelog -i CHANGELOG.md -s",
-  "changelogCommand": "./node_modules/.bin/conventional-changelog | tail -n +3",
-  "safeBump": false,
-  "scripts": {
-    "beforeStart": "npm test",
-    "beforeStage": "npm run changelog",
-    "afterRelease": "echo Successfully released ${name} v${version} to ${repo.repository}."
+  "hooks": {
+    "before:init": "npm test",
+    "after:bump": "npm run changelog"
   },
   "git": {
     "tagName": "v${version}"

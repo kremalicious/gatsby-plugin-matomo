@@ -9,8 +9,8 @@
     "test": "eslint ./src/**/*.js",
     "format": "prettier --write 'src/**/*.{js,jsx}'",
     "release": "release-it --non-interactive",
-    "prepublishOnly": "cross-env NODE_ENV=production npm run build",
-    "changelog": "./node_modules/.bin/conventional-changelog -i CHANGELOG.md -s -r 0"
+    "changelog": "auto-changelog -p",
+    "prepublishOnly": "cross-env NODE_ENV=production npm run build"
   },
   "dependencies": {},
   "devDependencies": {
@@ -18,7 +18,7 @@
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
-    "conventional-changelog-cli": "^2.0.21",
+    "auto-changelog": "^1.13.0",
     "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.3.0",
