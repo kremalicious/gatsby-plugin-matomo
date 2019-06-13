@@ -85,13 +85,10 @@ exports.onRenderBody = (
     (process.env.NODE_ENV === 'production' || pluginOptions.dev === true) &&
     !isPathExcluded
   ) {
-    return (
-      setHeadComponents([buildHead(pluginOptions)]) &&
-      setPostBodyComponents([
-        buildTrackingCode(pluginOptions),
-        buildTrackingCodeNoJs(pluginOptions, pathname)
-      ])
-    )
+    setHeadComponents([buildHead(pluginOptions)])
+    setPostBodyComponents([
+      buildTrackingCode(pluginOptions),
+      buildTrackingCodeNoJs(pluginOptions, pathname)
+    ])
   }
-  return null
 }
