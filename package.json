@@ -4,6 +4,7 @@
   "version": "0.7.2",
   "author": "Matthias Kretschmann <m@kretschmann.io>",
   "scripts": {
+    "prepare": "npm run build",
     "build": "babel src --out-dir . --ignore __tests__",
     "start": "babel -w src --out-dir . --ignore __tests__",
     "test": "eslint ./src/**/*.js",
