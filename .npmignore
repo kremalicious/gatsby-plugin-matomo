@@ -4,3 +4,5 @@ src
 .editorconfig
 .eslintrc
 .travis.yml
+coverage
+__tests__

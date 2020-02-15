@@ -71,19 +71,21 @@ export const onRenderBody = (
   { setHeadComponents, setPostBodyComponents, pathname },
   pluginOptions
 ) => {
-  const { exclude, dev } = pluginOptions
   const isProduction = process.env.NODE_ENV === 'production'
   let excludePaths = ['/offline-plugin-app-shell-fallback/']
 
-  if (typeof exclude !== 'undefined') {
-    exclude.map(exclude => {
+  if (pluginOptions && typeof pluginOptions.exclude !== 'undefined') {
+    pluginOptions.exclude.map(exclude => {
       excludePaths.push(exclude)
     })
   }
 
   const isPathExcluded = excludePaths.some(path => pathname === path)
 
-  if ((isProduction || dev === true) && !isPathExcluded) {
+  if (
+    (isProduction || (pluginOptions && pluginOptions.dev === true)) &&
+    !isPathExcluded
+  ) {
     setHeadComponents([buildHead(pluginOptions)])
     setPostBodyComponents([
       buildTrackingCode(pluginOptions),
