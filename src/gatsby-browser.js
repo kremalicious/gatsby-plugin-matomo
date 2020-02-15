@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 let first = true
 
 function getDuration() {
@@ -14,7 +12,7 @@ function getDuration() {
   return difference
 }
 
-exports.onRouteUpdate = ({ location, prevLocation }) => {
+export const onRouteUpdate = ({ location, prevLocation }) => {
   if (
     (process.env.NODE_ENV === 'production' && typeof _paq !== 'undefined') ||
     window.dev === true
@@ -40,7 +38,7 @@ exports.onRouteUpdate = ({ location, prevLocation }) => {
       _paq.push(['trackAllContentImpressions'])
 
       if (dev) {
-        console.log(`[Matomo] Page view for: ${url} - ${title}`)
+        console.debug(`[Matomo] Page view for: ${url} - ${title}`)
       }
     }
 
@@ -58,9 +56,10 @@ exports.onRouteUpdate = ({ location, prevLocation }) => {
       _paq.push(['trackEvent', 'javascript', 'load', 'duration', getDuration()])
 
       if (dev) {
-        console.log(`[Matomo] Tracking duration for: ${url}`)
+        console.debug(`[Matomo] Tracking duration for: ${url}`)
       }
     }
   }
+
   return null
 }

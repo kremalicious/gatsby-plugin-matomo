@@ -82,7 +82,7 @@ plugins: [
     options: {
       siteId: 'YOUR_SITE_ID',
       matomoUrl: 'https://YOUR_MATOMO_URL.COM',
-      siteUrl: 'https://YOUR_LIVE_SITE_URL.COM'
+      siteUrl: 'https://YOUR_LIVE_SITE_URL.COM',
       // All the optional settings
       exclude: ['/offline-plugin-app-shell-fallback/'],
       requireConsent: false,
@@ -118,7 +118,7 @@ See [CHANGELOG.md](CHANGELOG.md).
 
 The MIT License
 
-Copyright (c) 2018 Matthias Kretschmann
+Copyright (c) 2020 Matthias Kretschmann
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
