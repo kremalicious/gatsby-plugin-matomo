@@ -1,10 +1,6 @@
 {
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:prettier/recommended"
-  ],
-  "plugins": ["react", "prettier"],
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "plugins": ["prettier"],
   "parserOptions": {
     "sourceType": "module",
     "ecmaFeatures": {
@@ -15,6 +11,7 @@
   "env": {
     "browser": true,
     "node": true,
-    "es6": true
+    "es6": true,
+    "jest": true
   }
 }

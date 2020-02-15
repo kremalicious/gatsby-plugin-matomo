@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 let first = true
 
 function getDuration() {
@@ -14,15 +12,12 @@ function getDuration() {
   return difference
 }
 
-exports.onRouteUpdate = ({ location, prevLocation }) => {
-  if (
-    (process.env.NODE_ENV === 'production' && typeof _paq !== 'undefined') ||
-    window.dev === true
-  ) {
-    const _paq = window._paq || []
-    const dev = window.dev || null
+export const onRouteUpdate = ({ location, prevLocation }) => {
+  if (process.env.NODE_ENV === 'production' || window.dev === true) {
+    if (!window._paq) return
 
-    const url = location.pathname + location.search + location.hash
+    const { _paq, dev } = window
+    const url = location && location.pathname + location.search + location.hash
     const prevUrl =
       prevLocation &&
       prevLocation.pathname + prevLocation.search + prevLocation.hash
@@ -40,27 +35,23 @@ exports.onRouteUpdate = ({ location, prevLocation }) => {
       _paq.push(['trackAllContentImpressions'])
 
       if (dev) {
-        console.log(`[Matomo] Page view for: ${url} - ${title}`)
+        console.debug(`[Matomo] Page view for: ${url} - ${title}`)
       }
     }
 
-    if ('requestAnimationFrame' in window) {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(sendPageView)
-      })
-    } else {
-      // simulate 2 rAF calls
-      setTimeout(sendPageView, 32)
-    }
+    // Minimum delay for reactHelmet's requestAnimationFrame
+    const delay = Math.max(32, 0)
+    setTimeout(sendPageView, delay)
 
     if (first) {
       first = false
       _paq.push(['trackEvent', 'javascript', 'load', 'duration', getDuration()])
 
       if (dev) {
-        console.log(`[Matomo] Tracking duration for: ${url}`)
+        console.debug(`[Matomo] Tracking duration for: ${url}`)
       }
     }
   }
+
   return null
 }

@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react'
 
 function buildTrackingCode(pluginOptions) {
@@ -29,29 +30,28 @@ function buildTrackingCode(pluginOptions) {
       })();
 
       if (window.dev === true) {
-        console.log('[Matomo] Tracking initialized')
-        console.log('[Matomo] matomoUrl: ${matomoUrl}, siteId: ${siteId}')
+        console.debug('[Matomo] Tracking initialized')
+        console.debug('[Matomo] matomoUrl: ${matomoUrl}, siteId: ${siteId}')
       }
     }
   `
 
   return (
     <script
-      key={'gatsby-plugin-matomo'}
+      key="script-gatsby-plugin-matomo"
       dangerouslySetInnerHTML={{ __html: html }}
     />
   )
 }
 
 function buildTrackingCodeNoJs(pluginOptions, pathname) {
-  const html = `<img src="${pluginOptions.matomoUrl}/piwik.php?idsite=${
-    pluginOptions.siteId
-  }&rec=1&url=${pluginOptions.siteUrl +
+  const { matomoUrl, siteId, siteUrl } = pluginOptions
+  const html = `<img src="${matomoUrl}/piwik.php?idsite=${siteId}&rec=1&url=${siteUrl +
     pathname}" style="border:0" alt="tracker" />`
 
   return (
     <noscript
-      key={'gatsby-plugin-matomo'}
+      key="noscript-gatsby-plugin-matomo"
       dangerouslySetInnerHTML={{ __html: html }}
     />
   )
@@ -62,18 +62,19 @@ function buildHead(pluginOptions) {
     <link
       rel="preconnect"
       href={pluginOptions.matomoUrl}
-      key={'gatsby-plugin-matomo'}
+      key="preconnect-gatsby-plugin-matomo"
     />
   )
 }
 
-exports.onRenderBody = (
+export const onRenderBody = (
   { setHeadComponents, setPostBodyComponents, pathname },
   pluginOptions
 ) => {
+  const isProduction = process.env.NODE_ENV === 'production'
   let excludePaths = ['/offline-plugin-app-shell-fallback/']
 
-  if (typeof pluginOptions.exclude !== 'undefined') {
+  if (pluginOptions && typeof pluginOptions.exclude !== 'undefined') {
     pluginOptions.exclude.map(exclude => {
       excludePaths.push(exclude)
     })
@@ -82,7 +83,7 @@ exports.onRenderBody = (
   const isPathExcluded = excludePaths.some(path => pathname === path)
 
   if (
-    (process.env.NODE_ENV === 'production' || pluginOptions.dev === true) &&
+    (isProduction || (pluginOptions && pluginOptions.dev === true)) &&
     !isPathExcluded
   ) {
     setHeadComponents([buildHead(pluginOptions)])
