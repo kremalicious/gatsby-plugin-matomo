@@ -37,6 +37,7 @@ exports.onRouteUpdate = ({ location, prevLocation }) => {
       _paq.push(['setDocumentTitle', title])
       _paq.push(['trackPageView'])
       _paq.push(['enableLinkTracking'])
+      _paq.push(['trackAllContentImpressions'])
 
       if (dev) {
         console.log(`[Matomo] Page view for: ${url} - ${title}`)
