@@ -8,7 +8,8 @@ function buildTrackingCode(pluginOptions) {
     dev,
     localScript,
     requireConsent,
-    disableCookies
+    disableCookies,
+    cookieDomain
   } = pluginOptions
 
   const script = localScript ? localScript : `${matomoUrl}/piwik.js`
@@ -19,6 +20,11 @@ function buildTrackingCode(pluginOptions) {
       window._paq = window._paq || [];
       ${requireConsent ? "window._paq.push(['requireConsent']);" : ''}
       ${disableCookies ? "window._paq.push(['disableCookies']);" : ''}
+      ${
+        cookieDomain
+          ? `window._paq.push(['setCookieDomain', '${cookieDomain}']);`
+          : ''
+      }
       window._paq.push(['setTrackerUrl', '${matomoUrl}/piwik.php']);
       window._paq.push(['setSiteId', '${siteId}']);
       window._paq.push(['enableHeartBeatTimer']);
