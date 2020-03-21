@@ -53,7 +53,7 @@ function buildTrackingCode(pluginOptions) {
 }
 
 function buildTrackingCodeNoJs(pluginOptions, pathname) {
-  const { matomoUrl, siteId, siteUrl } = pluginOptions
+  const { matomoUrl, matomoPhpScript = 'piwik.php', siteId, siteUrl } = pluginOptions
   const html = `<img src="${matomoUrl}/${matomoPhpScript}?idsite=${siteId}&rec=1&url=${siteUrl +
     pathname}" style="border:0" alt="tracker" />`
 
