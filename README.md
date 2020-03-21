@@ -89,7 +89,7 @@ plugins: [
       siteUrl: 'https://YOUR_LIVE_SITE_URL.COM',
       // All the optional settings
       matomoPhpScript: 'piwik.php',
-      mataomoJsScript: 'piwik.js',
+      matomoJsScript: 'piwik.js',
       exclude: ['/offline-plugin-app-shell-fallback/'],
       requireConsent: false,
       disableCookies: false,
