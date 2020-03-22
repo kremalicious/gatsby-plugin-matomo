@@ -4,6 +4,8 @@ import React from 'react'
 function buildTrackingCode(pluginOptions) {
   const {
     matomoUrl,
+    matomoPhpScript = 'piwik.php',
+    matomoJsScript = 'piwik.js',
     siteId,
     dev,
     localScript,
@@ -12,7 +14,7 @@ function buildTrackingCode(pluginOptions) {
     cookieDomain
   } = pluginOptions
 
-  const script = localScript ? localScript : `${matomoUrl}/piwik.js`
+  const script = localScript ? localScript : `${matomoUrl}/${matomoJsScript}`
 
   const html = `
     window.dev = ${dev}
@@ -21,11 +23,11 @@ function buildTrackingCode(pluginOptions) {
       ${requireConsent ? "window._paq.push(['requireConsent']);" : ''}
       ${disableCookies ? "window._paq.push(['disableCookies']);" : ''}
       ${
-        cookieDomain
-          ? `window._paq.push(['setCookieDomain', '${cookieDomain}']);`
-          : ''
-      }
-      window._paq.push(['setTrackerUrl', '${matomoUrl}/piwik.php']);
+    cookieDomain
+      ? `window._paq.push(['setCookieDomain', '${cookieDomain}']);`
+      : ''
+    }
+      window._paq.push(['setTrackerUrl', '${matomoUrl}/${matomoPhpScript}']);
       window._paq.push(['setSiteId', '${siteId}']);
       window._paq.push(['enableHeartBeatTimer']);
       window.start = new Date();
@@ -51,8 +53,8 @@ function buildTrackingCode(pluginOptions) {
 }
 
 function buildTrackingCodeNoJs(pluginOptions, pathname) {
-  const { matomoUrl, siteId, siteUrl } = pluginOptions
-  const html = `<img src="${matomoUrl}/piwik.php?idsite=${siteId}&rec=1&url=${siteUrl +
+  const { matomoUrl, matomoPhpScript = 'piwik.php', siteId, siteUrl } = pluginOptions
+  const html = `<img src="${matomoUrl}/${matomoPhpScript}?idsite=${siteId}&rec=1&url=${siteUrl +
     pathname}" style="border:0" alt="tracker" />`
 
   return (

@@ -70,6 +70,8 @@ _NOTE: By default, this plugin only generates output when run in production mode
 | `siteId`         | Your Matomo site ID configured in your Matomo installation.                                                                                                                                                                                                                                                        |
 | `matomoUrl`      | The url of your Matomo installation.                                                                                                                                                                                                                                                                               |
 | `siteUrl`        | The url of your site, usually the same as `siteMetadata.siteUrl`. Only used for generating the url for `noscript` image tracking fallback.                                                                                                                                                                         |
+| `matomoPhpScript`| (optional) The name of your Matomo PHP script. Defaults to `piwik.php`                                                                                                                                                                                                                                                                 |
+| `matomoJsScript` | (optional) The name of your Matomo JS script. Defaults to `piwik.js`                                                                                                                                                                                                                                                                  |
 | `exclude`        | (optional) Specify an array of pathnames where tracking code will be excluded. The pathname `/offline-plugin-app-shell-fallback/` is excluded by default.                                                                                                                                                          |
 | `requireConsent` | (optional) If true, tracking will be disabled until you call `window._paq.push(['setConsentGiven']);`.                                                                                                                                                                                                             |
 | `disableCookies` | (optional) If true, no cookie will be used by Matomo.                                                                                                                                                                                                                                                              |
@@ -86,6 +88,8 @@ plugins: [
       matomoUrl: 'https://YOUR_MATOMO_URL.COM',
       siteUrl: 'https://YOUR_LIVE_SITE_URL.COM',
       // All the optional settings
+      matomoPhpScript: 'piwik.php',
+      matomoJsScript: 'piwik.js',
       exclude: ['/offline-plugin-app-shell-fallback/'],
       requireConsent: false,
       disableCookies: false,
