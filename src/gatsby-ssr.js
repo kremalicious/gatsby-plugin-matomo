@@ -23,10 +23,10 @@ function buildTrackingCode(pluginOptions) {
       ${requireConsent ? "window._paq.push(['requireConsent']);" : ''}
       ${disableCookies ? "window._paq.push(['disableCookies']);" : ''}
       ${
-    cookieDomain
-      ? `window._paq.push(['setCookieDomain', '${cookieDomain}']);`
-      : ''
-    }
+        cookieDomain
+          ? `window._paq.push(['setCookieDomain', '${cookieDomain}']);`
+          : ''
+      }
       window._paq.push(['setTrackerUrl', '${matomoUrl}/${matomoPhpScript}']);
       window._paq.push(['setSiteId', '${siteId}']);
       window._paq.push(['enableHeartBeatTimer']);
@@ -53,9 +53,15 @@ function buildTrackingCode(pluginOptions) {
 }
 
 function buildTrackingCodeNoJs(pluginOptions, pathname) {
-  const { matomoUrl, matomoPhpScript = 'piwik.php', siteId, siteUrl } = pluginOptions
-  const html = `<img src="${matomoUrl}/${matomoPhpScript}?idsite=${siteId}&rec=1&url=${siteUrl +
-    pathname}" style="border:0" alt="tracker" />`
+  const {
+    matomoUrl,
+    matomoPhpScript = 'piwik.php',
+    siteId,
+    siteUrl
+  } = pluginOptions
+  const html = `<img src="${matomoUrl}/${matomoPhpScript}?idsite=${siteId}&rec=1&url=${
+    siteUrl + pathname
+  }" style="border:0" alt="tracker" />`
 
   return (
     <noscript
@@ -83,12 +89,12 @@ export const onRenderBody = (
   let excludePaths = ['/offline-plugin-app-shell-fallback/']
 
   if (pluginOptions && typeof pluginOptions.exclude !== 'undefined') {
-    pluginOptions.exclude.map(exclude => {
+    pluginOptions.exclude.map((exclude) => {
       excludePaths.push(exclude)
     })
   }
 
-  const isPathExcluded = excludePaths.some(path => pathname === path)
+  const isPathExcluded = excludePaths.some((path) => pathname === path)
 
   if (
     (isProduction || (pluginOptions && pluginOptions.dev === true)) &&

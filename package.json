@@ -16,18 +16,18 @@
   "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.4",
-    "@babel/runtime": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/runtime": "^7.9.2",
     "auto-changelog": "^1.16.2",
-    "babel-preset-gatsby-package": "^0.2.16",
-    "cross-env": "^7.0.0",
+    "babel-preset-gatsby-package": "^0.2.18",
+    "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.0",
+    "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",
     "jest": "^25.1.0",
-    "prettier": "^1.19.1",
-    "react": "^16.12.0",
-    "release-it": "^12.6.1"
+    "prettier": "^2.0.1",
+    "react": "^16.13.1",
+    "release-it": "^13.1.2"
   },
   "homepage": "https://kremalicious.com/gatsby-plugin-matomo",
   "keywords": [
