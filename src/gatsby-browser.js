@@ -12,7 +12,7 @@ function getDuration() {
   return difference
 }
 
-export const onRouteUpdate = ({ location, prevLocation }) => {
+export const onRouteUpdate = ({ location, prevLocation }, pluginOptions) => {
   if (process.env.NODE_ENV === 'production' || window.dev === true) {
     if (!window._paq) return
 
@@ -21,6 +21,10 @@ export const onRouteUpdate = ({ location, prevLocation }) => {
     const prevUrl =
       prevLocation &&
       prevLocation.pathname + prevLocation.search + prevLocation.hash
+
+    const {
+      trackLoad = true
+    } = pluginOptions
 
     // document.title workaround stolen from:
     // https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-google-analytics/src/gatsby-browser.js
@@ -45,7 +49,10 @@ export const onRouteUpdate = ({ location, prevLocation }) => {
 
     if (first) {
       first = false
-      _paq.push(['trackEvent', 'javascript', 'load', 'duration', getDuration()])
+
+      if (trackLoad) {
+        _paq.push(['trackEvent', 'javascript', 'load', 'duration', getDuration()])
+      }
 
       if (dev) {
         console.debug(`[Matomo] Tracking duration for: ${url}`)
