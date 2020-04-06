@@ -18,13 +18,13 @@ describe('gatsby-plugin-matomo', () => {
         })
 
         it('does not send page view', () => {
-          onRouteUpdate({})
+          onRouteUpdate({}, {})
           expect(window._paq.push).not.toHaveBeenCalled()
         })
 
         it('sends page view in dev mode', () => {
           window.dev = true
-          onRouteUpdate({})
+          onRouteUpdate({}, {})
           expect(window._paq.push).toHaveBeenCalledTimes(1)
         })
       })
@@ -43,19 +43,19 @@ describe('gatsby-plugin-matomo', () => {
 
         it('does not send page view when _paq is undefined', () => {
           delete window._paq
-          onRouteUpdate({})
+          onRouteUpdate({}, {})
           jest.runAllTimers()
           expect(setTimeout).not.toHaveBeenCalled()
         })
 
         it('sends page view', () => {
-          onRouteUpdate({})
+          onRouteUpdate({}, {})
           jest.runAllTimers()
           expect(window._paq.push).toHaveBeenCalledTimes(5)
         })
 
         it('uses setTimeout with a minimum delay of 32ms', () => {
-          onRouteUpdate({})
+          onRouteUpdate({}, {})
           jest.runAllTimers()
           expect(setTimeout).toHaveBeenCalledWith(expect.any(Function), 32)
           expect(window._paq.push).toHaveBeenCalledTimes(5)

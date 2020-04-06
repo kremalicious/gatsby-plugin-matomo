@@ -22,9 +22,7 @@ export const onRouteUpdate = ({ location, prevLocation }, pluginOptions) => {
       prevLocation &&
       prevLocation.pathname + prevLocation.search + prevLocation.hash
 
-    const {
-      trackLoad = true
-    } = pluginOptions
+    const { trackLoad = true } = pluginOptions
 
     // document.title workaround stolen from:
     // https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-google-analytics/src/gatsby-browser.js
@@ -51,7 +49,13 @@ export const onRouteUpdate = ({ location, prevLocation }, pluginOptions) => {
       first = false
 
       if (trackLoad) {
-        _paq.push(['trackEvent', 'javascript', 'load', 'duration', getDuration()])
+        _paq.push([
+          'trackEvent',
+          'javascript',
+          'load',
+          'duration',
+          getDuration()
+        ])
       }
 
       if (dev) {
