@@ -6,7 +6,7 @@
 [![Build Status](https://github.com/kremalicious/gatsby-plugin-matomo/workflows/CI%2FCD%20Pipeline/badge.svg)](https://github.com/kremalicious/gatsby-plugin-matomo/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/067339a02f2058f5ba01/maintainability)](https://codeclimate.com/github/kremalicious/gatsby-plugin-matomo/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/067339a02f2058f5ba01/test_coverage)](https://codeclimate.com/github/kremalicious/gatsby-plugin-matomo/test_coverage)
-[![Greenkeeper badge](https://badges.greenkeeper.io/kremalicious/gatsby-plugin-matomo.svg)](https://greenkeeper.io/)
+[![Dependabot enabled](https://badgen.net/dependabot/thepracticaldev/dev.to?icon=dependabot)](https://dependabot.com/)
 
 > 🥂 Gatsby plugin to add Matomo (formerly Piwik) onto a site. https://kremalicious.com/gatsby-plugin-matomo/
 
