@@ -27,7 +27,7 @@
     "jest": "^26.1.0",
     "prettier": "^2.0.5",
     "react": "^16.13.1",
-    "release-it": "^13.6.4"
+    "release-it": "^14.0.2"
   },
   "homepage": "https://kremalicious.com/gatsby-plugin-matomo",
   "keywords": [
