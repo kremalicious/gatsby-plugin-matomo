@@ -74,6 +74,7 @@ _NOTE: By default, this plugin only generates output when run in production mode
 | `matomoJsScript`  | (optional) The name of your Matomo JS script. Defaults to `piwik.js`                                                                                                                                                                                                                                               |
 | `exclude`         | (optional) Specify an array of pathnames where tracking code will be excluded. The pathname `/offline-plugin-app-shell-fallback/` is excluded by default.                                                                                                                                                          |
 | `requireConsent`  | (optional) If true, tracking will be disabled until you call `window._paq.push(['setConsentGiven']);`.                                                                                                                                                                                                             |
+| `requireCookieConsent`  | (optional) If true, no cookies will be stored or used until you call `window._paq.push(['setCookieConsentGiven']);`.                                                                                                                                                                                                             |
 | `disableCookies`  | (optional) If true, no cookie will be used by Matomo.                                                                                                                                                                                                                                                              |
 | `cookieDomain`    | (optional) Specify cookie domain.                                                                                                                                                                                                                                                                                  |
 | `localScript`     | (optional) If set, load local `piwik.js` script from the given path, instead of loading it from your `matomoUrl`.                                                                                                                                                                                                  |
@@ -93,6 +94,7 @@ plugins: [
       matomoJsScript: 'piwik.js',
       exclude: ['/offline-plugin-app-shell-fallback/'],
       requireConsent: false,
+      requireCookieConsent: false,
       disableCookies: false,
       cookieDomain: '*.example.org',
       localScript: '/piwik.js',
