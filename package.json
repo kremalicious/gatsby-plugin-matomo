@@ -19,7 +19,7 @@
     "@babel/core": "^7.10.4",
     "@babel/runtime": "^7.10.4",
     "auto-changelog": "^2.1.0",
-    "babel-preset-gatsby-package": "^0.5.1",
+    "babel-preset-gatsby-package": "^0.7.0",
     "cross-env": "^7.0.2",
     "eslint": "^7.3.1",
     "eslint-config-prettier": "^6.11.0",
