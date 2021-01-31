@@ -1,29 +1,44 @@
 name: 'CI/CD Pipeline'
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - '**'
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node: ['14']
 
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
 
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '13.x'
-      - uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
 
-      - run: npm install
-      - name: Run tests & publish code coverage
-        uses: paambaati/codeclimate-action@v2.4.0
-        with:
-          coverageCommand: npm test
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+      - run: npm ci
+      - uses: paambaati/codeclimate-action@v2.7.5
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: npm test
 
   publish:
     needs: test
@@ -31,17 +46,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
-          node-version: '13.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm install
+
+      - run: npm ci
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       # - uses: actions/setup-node@v1
       #   with:
-      #     node-version: '13.x'
       #     registry-url: 'https://npm.pkg.github.com'
       # - run: npm publish
       #   env:
