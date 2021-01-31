@@ -4,30 +4,31 @@
   "version": "0.8.3",
   "author": "Matthias Kretschmann <m@kretschmann.io>",
   "scripts": {
-    "build": "babel src --out-dir . --ignore **/__tests__",
+    "build": "cross-env NODE_ENV=production babel src --out-dir . --ignore **/__tests__",
     "start": "babel -w src --out-dir . --ignore **/__tests__",
     "test": "npm run lint && jest --coverage",
     "lint": "eslint ./src/**/*.js",
     "format": "prettier --write 'src/**/*.js'",
     "release": "release-it --non-interactive",
     "changelog": "auto-changelog -p",
-    "prepublishOnly": "cross-env NODE_ENV=production npm run build"
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {},
   "devDependencies": {
-    "@babel/cli": "^7.10.4",
-    "@babel/core": "^7.10.4",
-    "@babel/runtime": "^7.10.4",
-    "auto-changelog": "^2.1.0",
-    "babel-preset-gatsby-package": "^0.5.1",
-    "cross-env": "^7.0.2",
-    "eslint": "^7.3.1",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "jest": "^26.1.0",
-    "prettier": "^2.0.5",
-    "react": "^16.13.1",
-    "release-it": "^14.2.0"
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/eslint-parser": "^7.12.1",
+    "@babel/runtime": "^7.12.5",
+    "auto-changelog": "^2.2.1",
+    "babel-preset-gatsby-package": "^0.11.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.19.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1",
+    "react": "^17.0.1",
+    "release-it": "^14.2.2"
   },
   "homepage": "https://kremalicious.com/gatsby-plugin-matomo",
   "keywords": [
@@ -41,9 +42,9 @@
   "license": "MIT",
   "main": "index.js",
   "peerDependencies": {
-    "gatsby": ">=2.0.0",
-    "react": ">=16.4.2",
-    "react-dom": ">=16.4.2"
+    "gatsby": ">=2",
+    "react": ">=16.8",
+    "react-dom": ">=16.8"
   },
   "repository": "github:kremalicious/gatsby-plugin-matomo",
   "bugs": {
