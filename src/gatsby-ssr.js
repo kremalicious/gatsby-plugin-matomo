@@ -11,6 +11,7 @@ function buildTrackingCode(pluginOptions) {
     localScript,
     requireConsent,
     disableCookies,
+    enableJSErrorTracking,
     cookieDomain
   } = pluginOptions
 
@@ -22,6 +23,7 @@ function buildTrackingCode(pluginOptions) {
       window._paq = window._paq || [];
       ${requireConsent ? "window._paq.push(['requireConsent']);" : ''}
       ${disableCookies ? "window._paq.push(['disableCookies']);" : ''}
+      ${enableJSErrorTracking ? "window._paq.push(['enableJSErrorTracking']);" : ''}
       ${
         cookieDomain
           ? `window._paq.push(['setCookieDomain', '${cookieDomain}']);`
