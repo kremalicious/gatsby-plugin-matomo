@@ -93,6 +93,14 @@ describe('gatsby-plugin-google-analytics', () => {
           expect(result).toMatch(/disableCookies/)
         })
 
+        it('sets enableJSErrorTracking', () => {
+          const { setPostBodyComponents } = setup({
+            enableJSErrorTracking: true
+          })
+          const result = JSON.stringify(setPostBodyComponents.mock.calls[0][0])
+          expect(result).toMatch(/enableJSErrorTracking/)
+        })
+
         it('sets localScript', () => {
           const { setPostBodyComponents } = setup({
             localScript: 'TEST_LOCAL_SCRIPT'
