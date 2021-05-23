@@ -11,14 +11,19 @@ function buildTrackingCode(pluginOptions) {
     localScript,
     requireConsent,
     disableCookies,
-    cookieDomain
+    cookieDomain,
+    respectDnt = true
   } = pluginOptions
 
   const script = localScript ? localScript : `${matomoUrl}/${matomoJsScript}`
 
+  const dntCondition = respectDnt
+    ? `!(navigator.doNotTrack === '1' || window.doNotTrack === '1')`
+    : `true`
+
   const html = `
     window.dev = ${dev}
-    if (window.dev === true || !(navigator.doNotTrack === '1' || window.doNotTrack === '1')) {
+    if (window.dev === true || ${dntCondition}) {
       window._paq = window._paq || [];
       ${requireConsent ? "window._paq.push(['requireConsent']);" : ''}
       ${disableCookies ? "window._paq.push(['disableCookies']);" : ''}

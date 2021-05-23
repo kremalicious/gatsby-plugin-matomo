@@ -92,6 +92,14 @@ describe('gatsby-plugin-google-analytics', () => {
           const result = JSON.stringify(setPostBodyComponents.mock.calls[0][0])
           expect(result).toMatch(/TEST_LOCAL_SCRIPT/)
         })
+
+        it('sets respectDnt to false', () => {
+          const { setPostBodyComponents } = setup({
+            respectDnt: false
+          })
+          const result = JSON.stringify(setPostBodyComponents.mock.calls[0][0])
+          expect(result).not.toMatch(/navigator.doNotTrack/)
+        })
       })
     })
   })
