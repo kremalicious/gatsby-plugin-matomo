@@ -12,6 +12,7 @@ function buildTrackingCode(pluginOptions) {
     requireConsent,
     requireCookieConsent,
     disableCookies,
+    cookieDomain,
     enableJSErrorTracking,
     respectDnt = true
   } = pluginOptions
@@ -33,7 +34,11 @@ function buildTrackingCode(pluginOptions) {
           : ''
       }
       ${disableCookies ? "window._paq.push(['disableCookies']);" : ''}
-      ${enableJSErrorTracking ? "window._paq.push(['enableJSErrorTracking']);" : ''}
+      ${
+        enableJSErrorTracking
+          ? "window._paq.push(['enableJSErrorTracking']);"
+          : ''
+      }
       ${
         cookieDomain
           ? `window._paq.push(['setCookieDomain', '${cookieDomain}']);`
