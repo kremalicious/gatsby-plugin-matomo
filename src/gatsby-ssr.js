@@ -10,6 +10,7 @@ function buildTrackingCode(pluginOptions) {
     dev,
     localScript,
     requireConsent,
+    requireCookieConsent,
     disableCookies,
     cookieDomain,
     respectDnt = true
@@ -26,6 +27,7 @@ function buildTrackingCode(pluginOptions) {
     if (window.dev === true || ${dntCondition}) {
       window._paq = window._paq || [];
       ${requireConsent ? "window._paq.push(['requireConsent']);" : ''}
+      ${requireCookieConsent ? "window._paq.push(['requireCookieConsent']);" : ''}
       ${disableCookies ? "window._paq.push(['disableCookies']);" : ''}
       ${
         cookieDomain
