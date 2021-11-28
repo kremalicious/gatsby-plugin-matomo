@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { onRenderBody } from '../gatsby-ssr'
 
 describe('gatsby-plugin-google-analytics', () => {
