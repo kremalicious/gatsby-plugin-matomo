@@ -26,7 +26,7 @@ function buildTrackingCode(pluginOptions) {
   const html = `
     window.dev = ${dev}
     if (window.dev === true || ${dntCondition}) {
-      window._paq = window._paq || [];
+      var _paq = window._paq = window._paq || [];
       ${requireConsent ? "window._paq.push(['requireConsent']);" : ''}
       ${
         requireCookieConsent
