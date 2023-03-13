@@ -4,7 +4,7 @@
 
 import { onRenderBody } from '../gatsby-ssr'
 
-describe('gatsby-plugin-google-analytics', () => {
+describe('gatsby-plugin-matomo', () => {
   describe('gatsby-ssr', () => {
     describe('onRenderBody', () => {
       describe('in non-production env', () => {
@@ -119,6 +119,20 @@ describe('gatsby-plugin-google-analytics', () => {
           })
           const result = JSON.stringify(setPostBodyComponents.mock.calls[0][0])
           expect(result).not.toMatch(/navigator.doNotTrack/)
+        })
+
+        it('sets additionalTrackers', () => {
+          const { setPostBodyComponents } = setup({
+            additionalTrackers: [
+              {
+                siteId: 'TEST_ADDITIONAL_SITE_ID',
+                trackerUrl: 'TEST_ADDITIONAL_TRACKER_URL'
+              }
+            ]
+          })
+          const result = JSON.stringify(setPostBodyComponents.mock.calls[0][0])
+          expect(result).toMatch(/TEST_ADDITIONAL_SITE_ID/)
+          expect(result).toMatch(/TEST_ADDITIONAL_TRACKER_URL/)
         })
       })
     })

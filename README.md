@@ -81,7 +81,7 @@ _NOTE: By default, this plugin only generates output when run in production mode
 | `respectDnt`            | (optional) If false, will load all scripts without respecting user preference to `Do Not Track` on browsers. Defaults to `true`.                                                                                                                                                                                   |
 | `dev`                   | (optional) Activate dev mode by setting to `true`. Will load all scripts despite not running in `production` environment. Ignores your local browser's DNT header too. Outputs some information in console about what it is doing. Useful for local testing but careful: all hits will be send like in production. |
 | `enableJSErrorTracking` | (optional) Enable basic JavaScript error tracking and reporting in Matomo by setting to `true`.                                                                                                                                                                                                                    |
-
+| `additionalTrackers`    | (optional) An array of additional trackers to track on different Matomo servers. Additional trackers are objects with the keys `siteId` and `trackerUrl` containing the full URL to the Matomo PHP script. Defaults to `[]`.                                                                                                                                                                                                                    |
 ```js
 plugins: [
   {
@@ -100,7 +100,13 @@ plugins: [
       cookieDomain: '*.example.org',
       localScript: '/piwik.js',
       dev: false,
-      enableJSErrorTracking: true
+      enableJSErrorTracking: true,
+      additionalTrackers: [
+        {
+          siteId: 'ADDITIONAL_SITE_ID',
+          trackerUrl: 'https://ADDITIONAL_MATOMO_URL.COM/matomo.php'
+        }
+      ]
     }
   }
 ]
