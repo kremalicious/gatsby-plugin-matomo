@@ -4,8 +4,8 @@ import React from 'react'
 function buildTrackingCode(pluginOptions) {
   const {
     matomoUrl,
-    matomoPhpScript = 'piwik.php',
-    matomoJsScript = 'piwik.js',
+    matomoPhpScript = 'matomo.php',
+    matomoJsScript = 'matomo.js',
     siteId,
     dev,
     localScript,
