@@ -152,4 +152,4 @@ Say thanks with BTC:
 `35UUssHexVK48jbiSgTxa4QihEoCqrwCTG`
 
 Say thanks with ETH:
-`0x04354F554536DA108726829207958d3E277f0210`
+`krema.eth`
