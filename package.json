@@ -46,5 +46,8 @@
   "repository": "github:kremalicious/gatsby-plugin-matomo",
   "bugs": {
     "url": "https://github.com/kremalicious/gatsby-plugin-matomo/issues"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
