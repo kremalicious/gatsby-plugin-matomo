@@ -1,52 +1,52 @@
 {
-  "name": "gatsby-plugin-matomo",
-  "description": "Gatsby plugin to add Matomo (formerly Piwik) onto a site.",
-  "version": "0.16.3",
-  "author": "Matthias Kretschmann <m@kretschmann.io>",
-  "scripts": {
-    "build": "cross-env NODE_ENV=production babel src --out-dir . --ignore **/__tests__",
-    "start": "babel -w src --out-dir . --ignore **/__tests__",
-    "test": "npm run lint && jest --coverage",
-    "lint": "eslint ./src/**/*.js",
-    "format": "prettier --write 'src/**/*.js'",
-    "release": "release-it --non-interactive",
-    "changelog": "auto-changelog -p",
-    "prepublishOnly": "npm run build"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.24.8",
-    "@babel/core": "^7.24.9",
-    "auto-changelog": "^2.4.0",
-    "babel-preset-gatsby-package": "^3.13.1",
-    "cross-env": "^7.0.3",
-    "eslint": "^8.50.0",
-    "eslint-config-prettier": "^9.1.0",
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
-    "prettier": "^3.3.3",
-    "release-it": "^17.6.0"
-  },
-  "homepage": "https://kremalicious.com/gatsby-plugin-matomo",
-  "keywords": [
-    "gatsby",
-    "gatsby-plugin",
-    "analytics",
-    "tracking",
-    "matomo",
-    "piwik"
-  ],
-  "license": "MIT",
-  "main": "index.js",
-  "peerDependencies": {
-    "gatsby": "^4.0.0 || ^5.0.0",
-    "react": ">=17.0.0",
-    "react-dom": ">=17.0.0"
-  },
-  "repository": "github:kremalicious/gatsby-plugin-matomo",
-  "bugs": {
-    "url": "https://github.com/kremalicious/gatsby-plugin-matomo/issues"
-  },
-  "engines": {
-    "node": ">=18"
-  }
+	"name": "gatsby-plugin-matomo",
+	"description": "Gatsby plugin to add Matomo (formerly Piwik) onto a site.",
+	"version": "0.16.3",
+	"author": "Matthias Kretschmann <m@kretschmann.io>",
+	"scripts": {
+		"build": "cross-env NODE_ENV=production babel src --out-dir . --ignore **/__tests__",
+		"start": "babel -w src --out-dir . --ignore **/__tests__",
+		"test": "npm run lint && jest --coverage",
+		"lint": "eslint ./src/**/*.js",
+		"format": "prettier --write 'src/**/*.js'",
+		"release": "release-it --non-interactive",
+		"changelog": "auto-changelog -p",
+		"prepublishOnly": "npm run build"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.26.4",
+		"@babel/core": "^7.26.0",
+		"auto-changelog": "^2.5.0",
+		"babel-preset-gatsby-package": "^3.14.0",
+		"cross-env": "^7.0.3",
+		"eslint": "^8.50.0",
+		"eslint-config-prettier": "^9.1.0",
+		"jest": "^29.7.0",
+		"jest-environment-jsdom": "^29.7.0",
+		"prettier": "^3.4.2",
+		"release-it": "^17.10.0"
+	},
+	"homepage": "https://kremalicious.com/gatsby-plugin-matomo",
+	"keywords": [
+		"gatsby",
+		"gatsby-plugin",
+		"analytics",
+		"tracking",
+		"matomo",
+		"piwik"
+	],
+	"license": "MIT",
+	"main": "index.js",
+	"peerDependencies": {
+		"gatsby": "^4.0.0 || ^5.0.0",
+		"react": ">=17.0.0",
+		"react-dom": ">=17.0.0"
+	},
+	"repository": "github:kremalicious/gatsby-plugin-matomo",
+	"bugs": {
+		"url": "https://github.com/kremalicious/gatsby-plugin-matomo/issues"
+	},
+	"engines": {
+		"node": ">=18"
+	}
 }
