@@ -9,7 +9,7 @@
 
 > 🥂 Gatsby plugin to add Matomo (formerly Piwik) onto a site. https://kremalicious.com/gatsby-plugin-matomo/
 
-**Deprecation notice: [Gatsby has been abandoned](https://github.com/gatsbyjs/gatsby/issues/38696) so maintaining this plugin does not make much sense. It will receive occasional dependency updates and will be archived at the end of 2024.**
+**Deprecation notice: [Gatsby has been abandoned](https://github.com/gatsbyjs/gatsby/issues/38696) so this plugin is deprecated and won't receive any more updates.**
 
 ---
 
